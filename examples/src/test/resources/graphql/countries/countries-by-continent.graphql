@@ -1,0 +1,7 @@
+query CountriesByContinent($code: ID!) {
+  continent(code: $code) {
+    code
+    name
+    countries { code name capital currency }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Countries: CountryByCode UA",
+  "request": {
+    "method": "POST",
+    "urlPath": "/graphql",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.operationName == 'CountryByCode')]"
+      },
+      {
+        "matchesJsonPath": "$.variables[?(@.code == 'UA')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "data": {
+        "country": {
+          "code": "UA",
+          "name": "Ukraine",
+          "native": "\u0423\u043a\u0440\u0430\u0457\u043d\u0430",
+          "capital": "Kyiv",
+          "emoji": "\ud83c\uddfa\ud83c\udde6",
+          "currency": "UAH",
+          "continent": {
+            "code": "EU",
+            "name": "Europe"
+          },
+          "languages": [
+            {
+              "code": "uk",
+              "name": "Ukrainian"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

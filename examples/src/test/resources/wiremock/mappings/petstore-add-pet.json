@@ -1,0 +1,17 @@
+{
+  "name": "Petstore: add pet (echo)",
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/v3/pet"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": "{{{request.body}}}",
+    "transformers": [
+      "response-template"
+    ]
+  }
+}

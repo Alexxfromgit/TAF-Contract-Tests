@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and contract tests (stub)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build, unit tests and contract tests against the bundled stubs
+        run: ./mvnw -B -ntp verify
+
+      - name: Generate Allure report
+        if: always()
+        run: ./mvnw -B -ntp -pl examples allure:report
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: allure-report
+          path: examples/target/site/allure-maven-plugin
+          retention-days: 14
+
+      - name: Upload framework reports (coverage, drift)
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: taf-reports
+          path: examples/target/taf-reports
+          retention-days: 14
+
+      - name: Prepare GitHub Pages artifact
+        if: always() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: examples/target/site/allure-maven-plugin
+
+  pages:
+    name: Publish Allure report
+    needs: build
+    if: always() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v5

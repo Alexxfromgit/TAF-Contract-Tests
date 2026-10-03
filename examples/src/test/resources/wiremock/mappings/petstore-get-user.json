@@ -1,0 +1,17 @@
+{
+  "name": "Petstore: get any user (username taken from the path)",
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/api/v3/user/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\"id\": 1, \"username\": \"{{request.path.[3]}}\", \"firstName\": \"Demo\", \"lastName\": \"User\", \"email\": \"{{request.path.[3]}}@example.org\", \"password\": \"XXXXXXXXXXX\", \"phone\": \"555-0100\", \"userStatus\": 1}"
+  }
+}

@@ -1,16 +1,15 @@
 # contract-taf
 
-[![CI](https://github.com/alexxfromgit/contract-taf/actions/workflows/ci.yml/badge.svg)](https://github.com/alexxfromgit/contract-taf/actions/workflows/ci.yml)
-[![Allure report](https://img.shields.io/badge/report-Allure-orange)](https://alexxfromgit.github.io/contract-taf/)
+[![CI](https://github.com/Alexxfromgit/TAF-Contract-Tests/actions/workflows/ci.yml/badge.svg)](https://github.com/Alexxfromgit/TAF-Contract-Tests/actions/workflows/ci.yml)
+[![Allure report](https://img.shields.io/badge/report-Allure-orange)](https://alexxfromgit.github.io/TAF-Contract-Tests/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Java 21](https://img.shields.io/badge/java-21-informational)
 
-**A ready-to-use Java framework for API contract testing.** Click **Use this template**, point it at your API, and
-you have JSON Schema contracts, OpenAPI validation, drift detection, API coverage and GraphQL support, reported in
-Allure.
+A Java framework for API contract testing, set up as a GitHub template repository. It covers JSON Schema contracts,
+OpenAPI validation, drift detection, API coverage and GraphQL, with results reported in Allure.
 
-It reimplements, from scratch, patterns proven in a large production test suite, on a current stack: Java 21,
-TestNG, REST Assured 5, networknt json-schema-validator, Atlassian OpenAPI validator, WireMock 3 and Allure 2.
+Stack: Java 21, TestNG, REST Assured 5, networknt json-schema-validator, Atlassian OpenAPI validator, WireMock 3 and
+Allure 2.
 
 ```java
 @Test(groups = Groups.SMOKE)
@@ -34,9 +33,9 @@ and counts the endpoint as covered.
 | **Consumer-driven JSON Schema contracts** | `@ExpectedSchema` or the fluent `ContractAssert`. Drafts 04/06/07/2019-09/2020-12 are detected from `$schema`. Readable errors such as `$.tags[0].name -> required`. |
 | **Tolerant by default, strict on demand** | Required fields and types are enforced and extra fields are allowed. `strict = true` rejects undeclared fields without editing the schema. |
 | **OpenAPI validation** | Every request and response of a service is checked against its OpenAPI document. Message levels are configurable. |
-| **Drift detection** | Fields the API returns but the contract does not declare are collected into a non-failing *API drift* report. You learn about provider changes before they break you. |
+| **Drift detection** | Fields the API returns but the contract does not declare are collected into a non-failing *API drift* report. |
 | **API coverage** | Documented endpoints vs. endpoints exercised, per service. Calls to undocumented endpoints are listed too. An optional `fail-under` gate is available. |
-| **Record mode** | `-Dcontract.record=missing` generates schemas from live responses, so you only review them instead of writing them by hand. |
+| **Record mode** | `-Dcontract.record=missing` generates schemas from live responses for review. |
 | **GraphQL** | `.graphql` documents, variables, `assertNoErrors()`, and the same schema checks on `data` via `jsonPointer`. |
 | **Pluggable auth** | `none`, `bearer`, `api-key`, `basic`, `oauth2` client credentials (token cached and refreshed), or your own `AuthProvider`. Credentials are masked in reports. |
 | **Offline by default** | An embedded WireMock serves the bundled stubs, so CI is deterministic. `-Denv=live` runs the same tests against real APIs. |
@@ -121,8 +120,8 @@ docs/       guides
 
 ## Companion project
 
-[mobile-taf](https://github.com/alexxfromgit/mobile-taf) uses the same foundation (config, failure taxonomy, Allure
-categories, linter) for Appium mobile UI testing on iOS, Android and device clouds.
+[TAF-Appium-JAVA](https://github.com/Alexxfromgit/TAF-Appium-JAVA) is a test automation framework for Android and
+iOS native apps and mobile web, built on Java 21, Appium, TestNG and Allure.
 
 ## Contributing
 

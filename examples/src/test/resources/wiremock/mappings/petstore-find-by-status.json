@@ -1,0 +1,49 @@
+{
+  "name": "Petstore: find by status",
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/v3/pet/findByStatus",
+    "queryParameters": {
+      "status": {
+        "equalTo": "available"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": [
+      {
+        "id": 10,
+        "name": "doggie",
+        "category": {
+          "id": 1,
+          "name": "Dogs"
+        },
+        "photoUrls": [
+          "https://example.org/doggie.png"
+        ],
+        "tags": [
+          {
+            "id": 1,
+            "name": "friendly"
+          }
+        ],
+        "status": "available"
+      },
+      {
+        "id": 11,
+        "name": "kitty",
+        "category": {
+          "id": 2,
+          "name": "Cats"
+        },
+        "photoUrls": [],
+        "tags": [],
+        "status": "available"
+      }
+    ]
+  }
+}

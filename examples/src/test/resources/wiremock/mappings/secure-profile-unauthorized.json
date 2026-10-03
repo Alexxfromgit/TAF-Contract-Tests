@@ -1,0 +1,17 @@
+{
+  "name": "Secure API: missing or wrong token",
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/secure/.*"
+  },
+  "response": {
+    "status": 401,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "error": "unauthorized"
+    }
+  }
+}

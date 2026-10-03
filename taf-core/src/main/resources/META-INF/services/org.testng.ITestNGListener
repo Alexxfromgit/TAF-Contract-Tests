@@ -1,0 +1,3 @@
+io.github.alexxfromgit.taf.contract.core.testng.TafExecutionListener
+io.github.alexxfromgit.taf.contract.core.testng.TafInvocationListener
+io.github.alexxfromgit.taf.contract.core.testng.TafAnnotationTransformer

@@ -1,0 +1,25 @@
+{
+  "name": "Secure API: profile with valid token",
+  "request": {
+    "method": "GET",
+    "urlPath": "/secure/profile",
+    "headers": {
+      "Authorization": {
+        "equalTo": "Bearer stub-access-token"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": "c0ffee",
+      "displayName": "Demo Client",
+      "scopes": [
+        "profile:read"
+      ]
+    }
+  }
+}

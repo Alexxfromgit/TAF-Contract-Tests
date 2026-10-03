@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.github.alexxfromgit</groupId>
+        <artifactId>contract-taf-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>examples</artifactId>
+    <name>contract-taf :: examples</name>
+    <description>Example contract tests (Swagger Petstore, Countries GraphQL). Replace with your own.</description>
+
+    <properties>
+        <!-- override on the command line: -Denv=live -Dsuite=suites/smoke.xml -->
+        <env>stub</env>
+        <suite>suites/all.xml</suite>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.alexxfromgit</groupId>
+            <artifactId>taf-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/${suite}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <env>${env}</env>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                        <taf.test-resources-dir>${project.basedir}/src/test/resources</taf.test-resources-dir>
+                        <taf.reports-dir>${project.build.directory}/taf-reports</taf.reports-dir>
+                        <!-- Dummy value accepted ONLY by the bundled WireMock identity provider (env=stub).
+                             Real secrets are provided as environment variables / CI secrets, never in files. -->
+                        <services.secure-api.auth.client-secret>stub-only-not-a-secret</services.secure-api.auth.client-secret>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

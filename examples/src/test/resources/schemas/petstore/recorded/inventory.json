@@ -1,0 +1,17 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "title" : "inventory",
+  "type" : "object",
+  "required" : [ "available", "pending", "sold" ],
+  "properties" : {
+    "available" : {
+      "type" : "integer"
+    },
+    "pending" : {
+      "type" : "integer"
+    },
+    "sold" : {
+      "type" : "integer"
+    }
+  }
+}

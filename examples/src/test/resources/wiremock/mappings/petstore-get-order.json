@@ -1,0 +1,17 @@
+{
+  "name": "Petstore: get any order (id taken from the path)",
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/api/v3/store/order/[0-9]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": [
+      "response-template"
+    ],
+    "body": "{\"id\": {{request.path.[4]}}, \"petId\": 10, \"quantity\": 1, \"shipDate\": \"2026-10-01T10:00:00.000+00:00\", \"status\": \"approved\", \"complete\": true}"
+  }
+}

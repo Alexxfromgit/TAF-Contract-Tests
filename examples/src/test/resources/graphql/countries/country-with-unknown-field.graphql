@@ -1,0 +1,7 @@
+# Deliberately invalid: "population" does not exist in the schema.
+query CountryWithUnknownField($code: ID!) {
+  country(code: $code) {
+    code
+    population
+  }
+}

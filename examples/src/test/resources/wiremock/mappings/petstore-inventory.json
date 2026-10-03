@@ -1,0 +1,18 @@
+{
+  "name": "Petstore: inventory",
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/v3/store/inventory"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "available": 7,
+      "pending": 2,
+      "sold": 1
+    }
+  }
+}

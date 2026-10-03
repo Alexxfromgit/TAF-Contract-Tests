@@ -1,0 +1,11 @@
+{
+  "name": "Petstore: unknown pet",
+  "priority": 1,
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/v3/pet/9999999999"
+  },
+  "response": {
+    "status": 404
+  }
+}

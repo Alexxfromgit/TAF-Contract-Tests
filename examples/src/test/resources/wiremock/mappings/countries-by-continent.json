@@ -1,0 +1,46 @@
+{
+  "name": "Countries: CountriesByContinent EU",
+  "request": {
+    "method": "POST",
+    "urlPath": "/graphql",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.operationName == 'CountriesByContinent')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "data": {
+        "continent": {
+          "code": "EU",
+          "name": "Europe",
+          "countries": [
+            {
+              "code": "PL",
+              "name": "Poland",
+              "capital": "Warsaw",
+              "currency": "PLN"
+            },
+            {
+              "code": "UA",
+              "name": "Ukraine",
+              "capital": "Kyiv",
+              "currency": "UAH"
+            },
+            {
+              "code": "VA",
+              "name": "Vatican City",
+              "capital": "Vatican City",
+              "currency": "EUR"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Petstore: place order (echo)",
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/v3/store/order"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": "{{{request.body}}}",
+    "transformers": [
+      "response-template"
+    ]
+  }
+}

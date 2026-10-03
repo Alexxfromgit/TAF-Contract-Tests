@@ -1,0 +1,11 @@
+contract-taf
+Copyright (c) 2026 alexxfromgit - MIT License (see LICENSE)
+
+This repository bundles third-party material used by the examples:
+
+* examples/src/test/resources/openapi/petstore-openapi.json and the shape of the Petstore stub responses
+  are derived from the Swagger Petstore OpenAPI 3.0 sample (https://petstore3.swagger.io),
+  licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+
+* The Countries GraphQL stub responses mirror the shape of the public Countries API
+  (https://github.com/trevorblades/countries). No data files of that project are included.

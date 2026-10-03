@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="contract-taf examples" verbose="1">
+
+    <!-- 1. fail fast on missing metadata or leaked secrets -->
+    <test name="Static checks">
+        <classes>
+            <class name="io.github.alexxfromgit.taf.contract.examples.lint.MetadataLintTest"/>
+        </classes>
+    </test>
+
+    <!-- 2. the contract tests; classes run in parallel (the framework keeps no shared mutable state) -->
+    <test name="Contract tests" parallel="classes" thread-count="4">
+        <packages>
+            <package name="io.github.alexxfromgit.taf.contract.examples.petstore"/>
+            <package name="io.github.alexxfromgit.taf.contract.examples.graphql"/>
+            <package name="io.github.alexxfromgit.taf.contract.examples.auth"/>
+        </packages>
+    </test>
+
+    <!-- 3. suite-level reports: API coverage (+ fail-under gate) and drift -->
+    <test name="Framework reports">
+        <classes>
+            <class name="io.github.alexxfromgit.taf.contract.core.contract.ContractReports"/>
+        </classes>
+    </test>
+</suite>

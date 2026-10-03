@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="contract-taf smoke" verbose="1">
+    <test name="Smoke contract tests" parallel="classes" thread-count="4">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="io.github.alexxfromgit.taf.contract.examples.*"/>
+        </packages>
+    </test>
+</suite>

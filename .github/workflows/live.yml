@@ -1,0 +1,38 @@
+name: Live APIs
+
+# Runs the same contract tests against the real public APIs. They are shared, mutable and sometimes down,
+# so this job never blocks merges: it is a monitor, not a gate. Its report shows real contract violations.
+on:
+  schedule:
+    - cron: '0 6 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Contract tests against live Petstore and Countries APIs
+        run: ./mvnw -B -ntp verify -Denv=live
+
+      - name: Generate Allure report
+        if: always()
+        run: ./mvnw -B -ntp -pl examples allure:report
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: allure-report-live
+          path: examples/target/site/allure-maven-plugin
+          retention-days: 14

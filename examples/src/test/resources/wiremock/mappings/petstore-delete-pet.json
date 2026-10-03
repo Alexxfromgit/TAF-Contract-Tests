@@ -1,0 +1,10 @@
+{
+  "name": "Petstore: delete pet",
+  "request": {
+    "method": "DELETE",
+    "urlPathPattern": "/api/v3/pet/[0-9]+"
+  },
+  "response": {
+    "status": 200
+  }
+}

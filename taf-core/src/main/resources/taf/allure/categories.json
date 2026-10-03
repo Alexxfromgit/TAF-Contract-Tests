@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Known issues",
+    "description": "Failures of tests marked with @KnownIssue - already reported bugs.",
+    "matchedStatuses": ["failed", "broken"],
+    "traceRegex": "(?s).*KnownIssueException.*"
+  },
+  {
+    "name": "Contract violations",
+    "description": "Responses that do not match their JSON Schema or OpenAPI specification.",
+    "matchedStatuses": ["failed"],
+    "traceRegex": "(?s).*ContractViolationException.*"
+  },
+  {
+    "name": "Product defects",
+    "description": "The product behaved differently from what the test expects.",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test data problems",
+    "description": "The test could not find or create the data it needs.",
+    "matchedStatuses": ["broken"],
+    "traceRegex": "(?s).*TestDataException.*"
+  },
+  {
+    "name": "Environment / infrastructure",
+    "description": "Unavailable services, timeouts, refused connections, device or driver problems.",
+    "matchedStatuses": ["broken"],
+    "traceRegex": "(?s).*(EnvironmentException|ConnectException|SocketTimeoutException|UnknownHostException|NoHttpResponseException|SessionNotCreatedException).*"
+  },
+  {
+    "name": "Framework problems",
+    "description": "Bugs or misconfiguration in the framework or the test code.",
+    "matchedStatuses": ["broken"],
+    "traceRegex": "(?s).*(FrameworkException|NullPointerException|ClassCastException|IllegalStateException|IllegalArgumentException).*"
+  },
+  {
+    "name": "Other problems",
+    "matchedStatuses": ["broken"]
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User",
+  "description": "Written in draft-07 on purpose: drafts are detected from $schema, so old and new schemas can live side by side.",
+  "type": "object",
+  "required": [
+    "id",
+    "username",
+    "email"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "username": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "userStatus": {
+      "type": "integer"
+    }
+  }
+}
