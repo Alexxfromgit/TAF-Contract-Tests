@@ -5,7 +5,7 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-## [1.0.0] - 2026-10-01
+## [1.0.0] - 2026-10-03
 
 ### Added
 - Layered configuration with environment files, environment variable overrides, placeholders and a secrets guard.
@@ -21,3 +21,6 @@ All notable changes to this project are documented here. The format follows
 - Failure taxonomy mapped to Allure categories, `Verify` (soft/hard), `Log` steps, `@KnownIssue`, `@Quarantined`,
   infrastructure-only retries, severity from groups and a metadata linter.
 - Examples for Swagger Petstore, Countries GraphQL and OAuth2; CI with GitHub Pages report publishing.
+
+[Unreleased]: https://github.com/Alexxfromgit/TAF-Contract-Tests/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Alexxfromgit/TAF-Contract-Tests/releases/tag/v1.0.0
