@@ -5,6 +5,18 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-04
+
+### Fixed
+- `-Denv=...` from the repository root no longer leaks into taf-core's unit tests: the framework now reads the
+  `taf.env` system property (the examples POM maps `-Denv` to it). `./mvnw verify -Denv=live` works again.
+- Retry log messages show the failure instead of a literal `{}`.
+
+### Upgrade notes
+- If your own module passes the environment to the tests itself, rename the system property from `env` to
+  `taf.env` (in the examples POM: `<taf.env>${env}</taf.env>`). The `TAF_ENV` environment variable and the
+  `env=` key in `taf.properties` work as before.
+
 ## [1.0.0] - 2026-10-03
 
 ### Added
@@ -22,5 +34,6 @@ All notable changes to this project are documented here. The format follows
   infrastructure-only retries, severity from groups and a metadata linter.
 - Examples for Swagger Petstore, Countries GraphQL and OAuth2; CI with GitHub Pages report publishing.
 
-[Unreleased]: https://github.com/Alexxfromgit/TAF-Contract-Tests/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/Alexxfromgit/TAF-Contract-Tests/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/Alexxfromgit/TAF-Contract-Tests/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/Alexxfromgit/TAF-Contract-Tests/releases/tag/v1.0.0
