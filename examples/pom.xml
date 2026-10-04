@@ -47,7 +47,7 @@
                         <suiteXmlFile>src/test/resources/${suite}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <env>${env}</env>
+                        <taf.env>${env}</taf.env>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                         <taf.test-resources-dir>${project.basedir}/src/test/resources</taf.test-resources-dir>
                         <taf.reports-dir>${project.build.directory}/taf-reports</taf.reports-dir>

@@ -29,7 +29,7 @@ public class TafConfigTest {
 
     @Test
     public void envFileOverridesProjectFile() {
-        TafConfig config = TafConfig.load(Map.of("env", "unit"), Map.of(), LOADER);
+        TafConfig config = TafConfig.load(Map.of("taf.env", "unit"), Map.of(), LOADER);
         assertThat(config.env()).isEqualTo("unit");
         assertThat(config.string("layer.name")).isEqualTo("unit-env");
         assertThat(config.string("layer.project-only")).isEqualTo("from-project");
@@ -44,7 +44,7 @@ public class TafConfigTest {
 
     @Test
     public void systemPropertyOverridesFiles() {
-        TafConfig config = TafConfig.load(Map.of("env", "unit", "layer.name", "sys"), Map.of(), LOADER);
+        TafConfig config = TafConfig.load(Map.of("taf.env", "unit", "layer.name", "sys"), Map.of(), LOADER);
         assertThat(config.string("layer.name")).isEqualTo("sys");
     }
 
@@ -80,7 +80,7 @@ public class TafConfigTest {
 
     @Test
     public void unknownEnvironmentFails() {
-        assertThatThrownBy(() -> TafConfig.load(Map.of("env", "does-not-exist"), Map.of(), LOADER))
+        assertThatThrownBy(() -> TafConfig.load(Map.of("taf.env", "does-not-exist"), Map.of(), LOADER))
                 .isInstanceOf(FrameworkException.class)
                 .hasMessageContaining("env/does-not-exist.properties");
     }

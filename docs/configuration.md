@@ -16,6 +16,10 @@ Configuration is a set of `.properties` layers. Later layers win.
 Environment variable names are the key in upper case with every non-alphanumeric character replaced by `_`. They
 only override keys declared in a file (layers 1-3).
 
+The environment is selected by the system property `taf.env` (or the `TAF_ENV` environment variable). The examples
+POM maps the Maven property `-Denv=<name>` to it, so `./mvnw verify -Denv=staging` works from the repository root
+without affecting taf-core's own unit tests.
+
 Values can reference other keys: `services.petstore.base-uri=${stub.base-url}/api/v3`. Placeholders are resolved
 on every lookup, so runtime values such as the random stub port work.
 

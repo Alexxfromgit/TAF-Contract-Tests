@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  * <ol>
  *     <li>{@code taf/defaults.properties} - framework defaults shipped in taf-core</li>
  *     <li>{@code taf.properties} - project defaults</li>
- *     <li>{@code env/<env>.properties} - selected with {@code -Denv=...} or {@code TAF_ENV}</li>
+ *     <li>{@code env/<env>.properties} - selected with system property {@code taf.env} (Maven: {@code -Denv=...}) or {@code TAF_ENV}</li>
  *     <li>System properties</li>
  *     <li>Environment variables ({@code services.petstore.base-uri} -> {@code SERVICES_PETSTORE_BASE_URI})</li>
  *     <li>{@link RuntimeOverrides} - values only known at runtime, e.g. a random stub port</li>
@@ -80,7 +80,9 @@ public final class TafConfig {
         loadInto(merged, fileLayers, classLoader, "taf/defaults.properties", false);
         loadInto(merged, fileLayers, classLoader, "taf.properties", false);
 
-        String envName = firstNonBlank(systemProperties.get("env"), environment.get("TAF_ENV"), merged.get("env"));
+        // "taf.env", not "env": Maven passes -D properties to every module, and taf-core's own unit tests must not
+        // pick up the environment chosen for the examples (the examples POM maps -Denv=... to taf.env)
+        String envName = firstNonBlank(systemProperties.get("taf.env"), environment.get("TAF_ENV"), merged.get("env"));
         if (envName != null) {
             loadInto(merged, fileLayers, classLoader, "env/" + envName + ".properties", true);
             merged.put("env", envName);
