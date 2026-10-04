@@ -33,7 +33,7 @@
         <!-- libraries -->
         <rest-assured.version>5.5.7</rest-assured.version>
         <testng.version>7.12.0</testng.version>
-        <allure.version>2.35.5</allure.version>
+        <allure.version>3.0.0</allure.version>
         <allure-commandline.version>2.46.1</allure-commandline.version>
         <aspectj.version>1.9.25.1</aspectj.version>
         <jackson.version>2.21.3</jackson.version>
