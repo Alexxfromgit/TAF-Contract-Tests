@@ -118,10 +118,13 @@ docs/       guides
 - [Reports, failure taxonomy and suite hygiene](docs/reports.md)
 - [Architecture](docs/architecture.md)
 
-## Companion project
+## Companion projects
 
-[TAF-Appium-JAVA](https://github.com/Alexxfromgit/TAF-Appium-JAVA) is a test automation framework for Android and
-iOS native apps and mobile web, built on Java 21, Appium, TestNG and Allure.
+- [TAF-Mobile-JAVA](https://github.com/Alexxfromgit/TAF-Mobile-JAVA) is a template for mobile UI test automation
+  with Appium. It uses the same foundation as this project (config, failure taxonomy, Allure categories, linter)
+  and adds cross-platform screen objects, smart sessions, network mocking and screen performance timings.
+- [TAF-Appium-JAVA](https://github.com/Alexxfromgit/TAF-Appium-JAVA) is a test automation framework for Android
+  and iOS native apps and mobile web, built on Java 21, Appium, TestNG and Allure.
 
 ## Contributing
 
