@@ -28,7 +28,7 @@ public class InfraRetryAnalyzer implements IRetryAnalyzer {
         }
         attempts++;
         Log.warn("Retrying {} ({}/{}) after infrastructure failure: {}",
-                result.getMethod().getMethodName(), attempts, max, result.getThrowable());
+                result.getMethod().getMethodName(), attempts, max, String.valueOf(result.getThrowable()));
         return true;
     }
 
