@@ -50,7 +50,7 @@
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
         <enforcer-plugin.version>3.6.2</enforcer-plugin.version>
         <resources-plugin.version>3.3.1</resources-plugin.version>
-        <allure-maven.version>2.18.0</allure-maven.version>
+        <allure-maven.version>3.1.0</allure-maven.version>
 
         <!-- javaagent required by Allure @Step / @Attachment -->
         <aspectj.agent>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</aspectj.agent>
